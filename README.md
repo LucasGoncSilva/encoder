@@ -6,8 +6,10 @@ Somente deve ser revelada a verdadeira mensagem utilizando exatamente a mesma ch
 
 # Utilizacao
 
-Criptografar: no primeiro campo de entrada, escreva a mensagem que deseja codificadar, inserindo uma senha no segundo campo. Em seguida, pressione o botao para criptografar. O texto criptografado saira no campo de saida, localizado no final da janela.
+## Criptografar
+No primeiro campo de entrada, escreva a mensagem que deseja codificadar, inserindo uma senha no segundo campo. Em seguida, pressione o botao para criptografar. O texto criptografado saira no campo de saida, localizado no final da janela.
 
 *retire a letra b do inicio juntamente com as aspas no inicio e no fim do token (texto de saida)
 
-Descriptografar: insira o token no primeiro campo de entrada e a senha utilizada para gerar o token no segundo campo. Se a senha for valida, a mensagem original saira no campo de saida, porem, caso a senha seja incorreta, sera exibido "senha invalida".
+## Descriptografar
+Insira o token no primeiro campo de entrada e a senha utilizada para gerar o token no segundo campo. Se a senha for valida, a mensagem original saira no campo de saida, porem, caso a senha seja incorreta, sera exibido "senha invalida".
