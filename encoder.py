@@ -1,10 +1,8 @@
 from tkinter import *
 import base64
-import os
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-
 
 
 def crypt():
@@ -64,7 +62,6 @@ win.title('Encoder')
 win.configure(bg='black')
 
 
-
 info = Label(
     win,
     text='INSIRA O TEXTO E A SENHA PARA (DES)CRIPTOGRAFAR',
@@ -72,7 +69,6 @@ info = Label(
     fg='green2'
 )
 info.grid(column=10, row=10, padx=5, pady=5, )
-
 
 
 rule1 = Label(
@@ -84,7 +80,6 @@ rule1 = Label(
 rule1.grid(column=10, row=11)
 
 
-
 rule2 = Label(
     win,
     text='*senha errada retorna "senha invalida"',
@@ -92,7 +87,6 @@ rule2 = Label(
     fg='red'
 )
 rule2.grid(column=10, row=12)
-
 
 
 rule3 = Label(
@@ -104,7 +98,6 @@ rule3 = Label(
 rule3.grid(column=10, row=13)
 
 
-
 rule4 = Label(
     win,
     text='*nao utilize caracteres especiais',
@@ -112,7 +105,6 @@ rule4 = Label(
     fg='red'
 )
 rule4.grid(column=10, row=14)
-
 
 
 rule5 = Label(
@@ -124,7 +116,6 @@ rule5 = Label(
 rule5.grid(column=10, row=15)
 
 
-
 text_entry = Entry(
     win,
     width=64,
@@ -132,7 +123,6 @@ text_entry = Entry(
     fg='white'
 )
 text_entry.grid(column=10, row=16, padx=5, pady=15)
-
 
 
 password_entry = Entry(
@@ -145,7 +135,6 @@ password_entry = Entry(
 password_entry.grid(column=10, row=17, padx=5, pady=15)
 
 
-
 crypt_button = Button(
     win,
     text='Cript',
@@ -156,7 +145,6 @@ crypt_button = Button(
 crypt_button.grid(column=10, row=18)
 
 
-
 decrypt_button = Button(
     win,
     text='Descript',
@@ -165,7 +153,6 @@ decrypt_button = Button(
     fg='green2'
 )
 decrypt_button.grid(column=10, row=19)
-
 
 
 output_txt = StringVar()
