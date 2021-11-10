@@ -1,7 +1,7 @@
 <h1>Encoder :lock: </h1>
 
-<h4 align='justify'>Encoder (codificador em ingles, no contexto de criptografia) eh um programa, dispositivo ou equipamento capaz de criptografar informacoes utilizando uma chave escolhida pelo usuario.
-Somente deve ser revelada a verdadeira mensagem utilizando exatamente a mesma chave utilizada para gerar o texto codificado, caso contrario, a mensagem revelada deve ser diferente de modo a nao haver ligacao com a mensagem original, ou nem mesmo sendo revelada mensagem alguma.</h4>
+<h4 align='justify'>Encoder (codificador em inglês, no contexto de criptografia) é um programa, dispositivo ou equipamento capaz de criptografar informações utilizando uma chave escolhida pelo usuário.
+Somente será revelada a verdadeira mensagem utilizando exatamente a mesma chave utilizada para gerar o texto codificado, caso contrário, a mensagem revelada será diferente de modo a não haver ligação com a mensagem original, nem mesmo sendo revelada mensagem alguma.</h4>
 
 <br>
 
@@ -25,14 +25,14 @@ Somente deve ser revelada a verdadeira mensagem utilizando exatamente a mesma ch
 
 <h2>Features :star: </h2>
 
-- [x] Codificacao de textos com senha
-- [x] Decodificacao de textos com senha
+- [x] Codificação de textos com senha
+- [x] Decodificação de textos com senha
 
 <br>
 
-<h2>Pre-requisitos :books: </h2>
+<h2>Pré-requisitos :books: </h2>
 
-<!-- Nenhuma ferramenta de pre-requisito necessaria. -->
+<!-- Nenhuma ferramenta de pré-requisito necessaria. -->
 
 <ul>
 <li>Git</li>
@@ -41,18 +41,18 @@ Somente deve ser revelada a verdadeira mensagem utilizando exatamente a mesma ch
 
 <br>
 
-<h2>Utilizacao :crystal_ball: </h2>
+<h2>Utilização :crystal_ball: </h2>
 
 <h3>Iniciando</h3>
 
-Clone o repositorio e acesse a pasta criada para ele
+Clone o repositório e acesse a pasta criada para ele
 ```cmd
 git clone git@github.com:LucasGoncSilva/encoder.git
 
 cd encoder
 ```
 
-Crie um ambiente virtual para instalar as dependencias do projeto e ative-o
+Crie um ambiente virtual para instalar as dependências do projeto e ative-o
 ```cmd
 python -m venv venv_encoder
 
@@ -69,13 +69,13 @@ python encoder.py
 
 <h3>Criptografar</h3>
 
-No primeiro campo de entrada, escreva a mensagem que deseja codificadar, inserindo uma senha no segundo campo. Em seguida, pressione o botao para criptografar. O texto criptografado saira no campo de saida, localizado no final da janela.
+No primeiro campo de entrada, escreva a mensagem que deseja codificadar, inserindo uma senha no segundo campo. Em seguida, pressione o botão para criptografar. O texto criptografado sairá no campo de saida, localizado no final da janela.
 
 
 ---
 
 <h3>Descriptografar</h3>
 
-Insira o token no primeiro campo de entrada e a senha utilizada para gerar o token no segundo campo. Se a senha for valida, a mensagem original saira no campo de saida, porem, caso a senha seja incorreta, sera exibido "senha invalida".
+Insira o token no primeiro campo de entrada e a senha utilizada para gerar o token no segundo campo. Se a senha for válida, a mensagem original será exibida no campo de saida, porém, caso a senha seja incorreta, será exibido "senha inválida".
 
-:warning: retire a letra b do inicio juntamente com as aspas no inicio e no fim do token (texto de saida) :warning:
+:warning: remova a letra b do inicio juntamente com as aspas no inicio e no fim do token (texto de saida na codificação) :warning:
