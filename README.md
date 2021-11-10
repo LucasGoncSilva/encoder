@@ -1,4 +1,4 @@
-<h1>Encoder :newspaper: </h1>
+<h1>Encoder :lock: </h1>
 
 <h4 align='justify'>Encoder (codificador em ingles, no contexto de criptografia) eh um programa, dispositivo ou equipamento capaz de criptografar informacoes utilizando uma chave escolhida pelo usuario.
 Somente deve ser revelada a verdadeira mensagem utilizando exatamente a mesma chave utilizada para gerar o texto codificado, caso contrario, a mensagem revelada deve ser diferente de modo a nao haver ligacao com a mensagem original, ou nem mesmo sendo revelada mensagem alguma.</h4>
