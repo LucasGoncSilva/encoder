@@ -66,6 +66,11 @@ win.title('Encoder')
 win.configure(bg=main_color)
 
 
+image = PhotoImage(file = 'icon.png')
+
+win.iconphoto(True, image)
+
+
 info = Label(
     win,
     text='INSIRA O TEXTO E A SENHA PARA (DES)CRIPTOGRAFAR',
