@@ -55,63 +55,67 @@ def decrypt():
 
     except: output_txt.set("***SENHA  INVALIDA***"*3)
 
+main_color = '#fff'
+secundary_color = '#4717f6'
+alert_color = '#f00'
+
 
 
 win = Tk()
 win.title('Encoder')
-win.configure(bg='black')
+win.configure(bg=main_color)
 
 
 info = Label(
     win,
     text='INSIRA O TEXTO E A SENHA PARA (DES)CRIPTOGRAFAR',
-    bg='black',
-    fg='green2'
+    bg=main_color,
+    fg=secundary_color
 )
-info.grid(column=10, row=10, padx=5, pady=5, )
+info.grid(column=10, row=10, padx=5, pady=5)
 
 
 rule1 = Label(
     win,
-    text='*escreva sempre em minusculo',
-    bg='black',
-    fg='red'
+    text='*evite escrever em maiúsculo',
+    bg=main_color,
+    fg=alert_color
 )
 rule1.grid(column=10, row=11)
 
 
 rule2 = Label(
     win,
-    text='*senha errada retorna "senha invalida"',
-    bg='black',
-    fg='red'
+    text='*senha incorreta retornará "senha inválida"',
+    bg=main_color,
+    fg=alert_color
 )
 rule2.grid(column=10, row=12)
 
 
 rule3 = Label(
     win,
-    text='*primeiro campo "mensagem", segundo campo "senha"',
-    bg='black',
-    fg='red'
+    text='*no primeiro campo "mensagem", no segundo campo "senha"',
+    bg=main_color,
+    fg=alert_color
 )
 rule3.grid(column=10, row=13)
 
 
 rule4 = Label(
     win,
-    text='*nao utilize caracteres especiais',
-    bg='black',
-    fg='red'
+    text='*não utilize caracteres especiais (ãàêè...)',
+    bg=main_color,
+    fg=alert_color
 )
 rule4.grid(column=10, row=14)
 
 
 rule5 = Label(
     win,
-    text="*remova o b'<mensagem>' antes de descriptografar",
-    bg='black',
-    fg='red'
+    text="*remova o b'<mensagem>' antes de enviar o token",
+    bg=main_color,
+    fg=alert_color
 )
 rule5.grid(column=10, row=15)
 
@@ -119,8 +123,8 @@ rule5.grid(column=10, row=15)
 text_entry = Entry(
     win,
     width=64,
-    bg='gray34',
-    fg='white'
+    bg='#ddd',
+    fg=secundary_color
 )
 text_entry.grid(column=10, row=16, padx=5, pady=15)
 
@@ -128,8 +132,8 @@ text_entry.grid(column=10, row=16, padx=5, pady=15)
 password_entry = Entry(
     win,
     width=16,
-    bg='gray34',
-    fg='white',
+    bg='#ddd',
+    fg=secundary_color,
     show='*'
 )
 password_entry.grid(column=10, row=17, padx=5, pady=15)
@@ -139,8 +143,8 @@ crypt_button = Button(
     win,
     text='Cript',
     command=crypt,
-    bg='gray25',
-    fg='green2'
+    bg=secundary_color,
+    fg=main_color
 )
 crypt_button.grid(column=10, row=18)
 
@@ -149,8 +153,8 @@ decrypt_button = Button(
     win,
     text='Descript',
     command=decrypt,
-    bg='gray25',
-    fg='green2'
+    bg=secundary_color,
+    fg=main_color
 )
 decrypt_button.grid(column=10, row=19)
 
@@ -161,7 +165,6 @@ output_camp = Entry(
     textvariable=output_txt,
     state="readonly",
     width=64,
-    bg='gray50',
     fg='black'
 )
 output_camp.grid(column=10, row=20, padx=5, pady=25)
