@@ -1,59 +1,20 @@
 from tkinter import *
-import base64
-from cryptography.fernet import Fernet
-from cryptography.hazmat.primitives import hashes
-from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+
+from functions import encode, decode
 
 
 def crypt():
-    client_text = text_entry.get()
-    text = bytes(client_text, encoding='ascii')
+    message = text_entry.get()
+    keyword = password_entry.get()
 
-    client_password = password_entry.get()
-    password = bytes(client_password, encoding="ascii")
-
-    salt = b'\xecB\xfd\xf6\xaaw\xf0\x91[&\x83\x04\xe5\xe2ek'
-
-    kdf = PBKDF2HMAC(
-        algorithm=hashes.SHA256(),
-        length=32,
-        salt=salt,
-        iterations=100000,
-    )
-
-    key = base64.urlsafe_b64encode(kdf.derive(password))
-
-    f = Fernet(key)
-
-    token = f.encrypt(text)
-    output_txt.set(f"{token}")
+    output_txt.set(f"{encode(message, keyword)}")
 
 
 def decrypt():
-    client_text = text_entry.get()
-    text = bytes(client_text, encoding='ascii')
+    message = text_entry.get()
+    keyword = password_entry.get()
 
-    client_password = password_entry.get()
-    password = bytes(client_password, encoding="ascii")
-
-    try:
-        salt = b'\xecB\xfd\xf6\xaaw\xf0\x91[&\x83\x04\xe5\xe2ek'
-
-        kdf = PBKDF2HMAC(
-            algorithm=hashes.SHA256(),
-            length=32,
-            salt=salt,
-            iterations=100000,
-        )
-
-        key = base64.urlsafe_b64encode(kdf.derive(password))
-
-        f = Fernet(key)
-
-        token = f.decrypt(text)
-        output_txt.set(f"{token}")
-
-    except: output_txt.set("***SENHA  INVALIDA***"*3)
+    output_txt.set(f"{decode(message, keyword)}")
 
 main_color = '#fff'
 secundary_color = '#4717f6'
@@ -82,7 +43,7 @@ info.grid(column=10, row=10, padx=5, pady=5)
 
 rule1 = Label(
     win,
-    text='*evite escrever em maiúsculo',
+    text='* Apenas letras minúsculas e sem acentuação serão cifradas corretamente',
     bg=main_color,
     fg=alert_color
 )
@@ -91,38 +52,20 @@ rule1.grid(column=10, row=11)
 
 rule2 = Label(
     win,
-    text='*senha incorreta retornará "senha inválida"',
+    text='* No primeiro campo "mensagem", no segundo campo "senha"; saída no terceito campo',
     bg=main_color,
     fg=alert_color
 )
-rule2.grid(column=10, row=12)
+rule2.grid(column=10, row=12, padx=5)
 
 
 rule3 = Label(
     win,
-    text='*no primeiro campo "mensagem", no segundo campo "senha"',
+    text="* Remova o b'<mensagem>' antes de enviar o token",
     bg=main_color,
     fg=alert_color
 )
 rule3.grid(column=10, row=13)
-
-
-rule4 = Label(
-    win,
-    text='*não utilize caracteres especiais (ãàêè...)',
-    bg=main_color,
-    fg=alert_color
-)
-rule4.grid(column=10, row=14)
-
-
-rule5 = Label(
-    win,
-    text="*remova o b'<mensagem>' antes de enviar o token",
-    bg=main_color,
-    fg=alert_color
-)
-rule5.grid(column=10, row=15)
 
 
 text_entry = Entry(
@@ -131,7 +74,7 @@ text_entry = Entry(
     bg='#ddd',
     fg=secundary_color
 )
-text_entry.grid(column=10, row=16, padx=5, pady=15)
+text_entry.grid(column=10, row=14, padx=5, pady=15)
 
 
 password_entry = Entry(
@@ -141,7 +84,7 @@ password_entry = Entry(
     fg=secundary_color,
     show='*'
 )
-password_entry.grid(column=10, row=17, padx=5, pady=15)
+password_entry.grid(column=10, row=15, padx=5, pady=15)
 
 
 crypt_button = Button(
@@ -151,7 +94,7 @@ crypt_button = Button(
     bg=secundary_color,
     fg=main_color
 )
-crypt_button.grid(column=10, row=18)
+crypt_button.grid(column=10, row=16)
 
 
 decrypt_button = Button(
@@ -161,7 +104,7 @@ decrypt_button = Button(
     bg=secundary_color,
     fg=main_color
 )
-decrypt_button.grid(column=10, row=19)
+decrypt_button.grid(column=10, row=17)
 
 
 output_txt = StringVar()
@@ -172,7 +115,7 @@ output_camp = Entry(
     width=64,
     fg='black'
 )
-output_camp.grid(column=10, row=20, padx=5, pady=25)
+output_camp.grid(column=10, row=18, padx=5, pady=25)
 
 
 win.mainloop()
