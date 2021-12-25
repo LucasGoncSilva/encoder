@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&family=Ubuntu&display=swap');
+
+:root {
+    --main_color: #fff;
+    --secundary_color: #4717f6;
+    --accent_color_1: #8776d4;
+    --accent_color_2: #e8bdff;
+    --alert_color: #f00;
+}
+
+html {
+    font: 400 20px 'Ubuntu', sans-serif;
+    color: var(--secundary_color);
+    background: var(--main_color);
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    color: var(--secundary_color);
+    margin-bottom: 5vh;
+}
+
+form {
+    accent-color: var(--secundary_color);
+}
+
+textarea {
+    font: 400 17px 'Ubuntu', sans-serif;
+    background: var(--main_color);
+    color: var(--secundary_color);
+    border: 2px solid var(--accent_color_1);
+    border-radius: 1vw;
+    margin: auto;
+    padding: 1vw;
+    width: 65%;
+    height: 80px;
+    resize: none;
+    transition: 300ms;
+}
+
+#output { margin: 2vh auto; }
+
+textarea:hover {
+    background: var(--accent_color_2);
+}
+
+input[type=password] {
+    font-size: 17px;
+    padding: 1vw;
+    background: var(--main_color);
+    color: var(--secundary_color);
+    border: 2px solid var(--secundary_color);
+    border-radius: 10px;
+}
+
+label {
+    font: 400 20px 'Ubuntu', sans-serif;
+    transition: 300ms;
+}
+
+label:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--secundary_color);
+    text-decoration-style: wavy;
+}
+
+input[type=submit] {
+    font: 400 20px 'Ubuntu', sans-serif;
+    margin: 20px auto;
+    padding: 10px 40px;
+    background: var(--main_color);
+    color: var(--secundary_color);
+    border: 2px solid var(--secundary_color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 300ms;
+}
+
+input[type=submit]:hover {
+    color: var(--main_color);
+    background: var(--secundary_color);
+}
+
+img {
+    opacity: .1;
+}

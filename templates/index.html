@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/icon.svg') }}" type="image/x-icon">
+    <title>Encoder</title>
+</head>
+
+<body>
+
+    <h1>Encoder</h1>
+
+    <form action="/output" method="post">
+
+        <textarea placeholder='Texto ou Token' name="message" id="message" cols="" rows=""></textarea><br><br><br>
+
+        <input type="password" name="keyword" id="keyword" placeholder="Senha"><br><br>
+
+        <input type="radio" name="encode_func" id="encode" value="encode">
+        <label for="encode">Codificar</label>
+
+        <input type="radio" name="encode_func" id="decode" value="decode">
+        <label for="decode">Decodificar</label><br>
+
+        <input type="submit" value="Confirmar">
+
+    </form>
+
+    {% if output %}
+    <textarea disabled=disabled placeholder="Após a confirmação, o resultado aparecerá aqui" name="output" id="output"
+        cols="" rows="">{{ output }}</textarea><br>
+    {% else %}
+    <textarea disabled=disabled placeholder="Após a confirmação, o resultado aparecerá aqui" name="output" id="output"
+        cols="" rows=""></textarea><br>
+    {% endif %}
+
+    <img src="{{ url_for('static', filename='img/icon.svg') }}" alt="icon">
+
+</body>
+
+</html>
