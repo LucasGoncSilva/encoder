@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -31,12 +31,14 @@
     </form>
 
     {% if output %}
-    <textarea disabled=disabled placeholder="Após a confirmação, o resultado aparecerá aqui" name="output" id="output"
+    <textarea disabled=disabled name="output" id="output"
         cols="" rows="">{{ output }}</textarea><br>
     {% else %}
     <textarea disabled=disabled placeholder="Após a confirmação, o resultado aparecerá aqui" name="output" id="output"
         cols="" rows=""></textarea><br>
     {% endif %}
+
+    <span>* Não utilize caracteres especiais (ã, â, é, ç...)</span><br><br>
 
     <img src="{{ url_for('static', filename='img/icon.svg') }}" alt="icon">
 

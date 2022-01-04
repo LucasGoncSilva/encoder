@@ -17,22 +17,14 @@ def output():
     
     if request.method == 'POST' and request.form['encode_func'] == 'encode':
         
-        message = request.form['message']
-        keyword = request.form['keyword']
-
-        output = str(encode(message, keyword))
-        output = output[2:-1]
+        output = encode(request.form['message'], request.form['keyword'])
 
         return render_template('index.html', output=output)
 
 
     elif request.method == 'POST' and request.form['encode_func'] == 'decode':
         
-        message = request.form['message']
-        keyword = request.form['keyword']
-
-        output = str(decode(message, keyword))
-        output = output[2:-1]
+        output = decode(request.form['message'], request.form['keyword'])
 
         return render_template('index.html', output=output)
 

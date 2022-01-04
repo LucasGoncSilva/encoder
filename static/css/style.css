@@ -22,9 +22,7 @@ h1 {
     margin-bottom: 5vh;
 }
 
-form {
-    accent-color: var(--secundary_color);
-}
+form { accent-color: var(--secundary_color); }
 
 textarea {
     font: 400 17px 'Ubuntu', sans-serif;
@@ -42,9 +40,7 @@ textarea {
 
 #output { margin: 2vh auto; }
 
-textarea:hover {
-    background: var(--accent_color_2);
-}
+textarea:hover { background: var(--accent_color_2); }
 
 input[type=password] {
     font-size: 17px;
@@ -83,6 +79,6 @@ input[type=submit]:hover {
     background: var(--secundary_color);
 }
 
-img {
-    opacity: .1;
-}
+span { color: var(--alert_color); }
+
+img { opacity: .1; }
