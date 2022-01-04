@@ -79,6 +79,6 @@ input[type=submit]:hover {
     background: var(--secundary_color);
 }
 
-span { color: var(--alert_color); }
+span { color: var(--alert_color); text-decoration: underline; }
 
 img { opacity: .1; }

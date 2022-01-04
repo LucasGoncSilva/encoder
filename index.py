@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 
-from functions import encode, decode
+from functions.functions import encode, decode
 
 
 app = Flask(__name__)
