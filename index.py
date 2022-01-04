@@ -13,7 +13,7 @@ def index():
 
 
 @app.route('/output', methods = ['POST', 'GET'])
-def banana():
+def output():
     
     if request.method == 'POST' and request.form['encode_func'] == 'encode':
         
