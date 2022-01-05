@@ -37,6 +37,7 @@
 
     <!-- imports -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -46,14 +47,15 @@
 
     <form action="/output" method="post">
 
-        <textarea placeholder='Texto ou Token' name="message" id="message" cols="" rows=""></textarea><br><br><br>
+        <textarea required class="entry" autofocus placeholder='Texto ou Token' name="message" id="message" cols=""
+            rows=""></textarea><br><br><br>
 
-        <input type="password" name="keyword" id="keyword" placeholder="Senha"><br><br>
+        <input required class="entry" type="password" name="keyword" id="keyword" placeholder="Senha"><br><br>
 
-        <input type="radio" name="encode_func" id="encode" value="encode">
+        <input required type="radio" name="encode_func" id="encode" value="encode">
         <label for="encode">Codificar</label>
 
-        <input type="radio" name="encode_func" id="decode" value="decode">
+        <input required type="radio" name="encode_func" id="decode" value="decode">
         <label for="decode">Decodificar</label><br>
 
         <input type="submit" value="Confirmar">
@@ -61,15 +63,96 @@
     </form>
 
     {% if output %}
-    <textarea disabled=disabled name="output" id="output" cols="" rows="">{{ output }}</textarea><br>
+    <textarea readonly name="output" id="output" cols="" rows="">{{ output }}</textarea><br>
     {% else %}
-    <textarea disabled=disabled placeholder="Após a confirmação, o resultado aparecerá aqui" name="output" id="output"
-        cols="" rows=""></textarea><br>
+    <textarea readonly placeholder="Após a confirmação, o resultado aparecerá aqui" name="output" id="output" cols=""
+        rows=""></textarea><br>
     {% endif %}
 
-    <span>* Não utilize caracteres especiais (ã, â, é, ç...)</span><br><br>
+    <span>Não utilize caracteres especiais (ã, â, é, ç...)</span>
+
+    <p>* @ $ % & # ! ( [ { , . ; ' " são permitidos</p><br><br>
 
     <img src="{{ url_for('static', filename='img/icon.svg') }}" alt="icon">
+
+    <script>
+
+        function checkASCII(str) { return /^[\x00-\x7F]*$/.test(str) }
+
+
+        const message = document.getElementById('message')
+        const keyword = document.getElementById('keyword')
+        const confirm = document.querySelector('input[type=submit]')
+        const output = document.getElementById('output')
+
+
+        confirm.disabled = true
+        confirm.style.cursor = 'not-allowed'
+
+
+        document.querySelectorAll('.entry').forEach(() => {
+
+            this.onkeyup = () => {
+
+                if (message.value.length !== 0 && keyword.value.length !== 0) {
+
+                    confirm.disabled = false
+                    confirm.style.cursor = 'pointer'
+
+                } else {
+
+                    confirm.disabled = true
+                    confirm.style.cursor = 'not-allowed'
+
+                }
+            }
+
+        })
+
+
+
+        document.querySelector('form').onsubmit = () => {
+
+            if (checkASCII(message.value) === false || checkASCII(keyword.value) === false) {
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Deu ruim :(',
+                    html: '<p><span>NÃO</span> utilize caracteres especiais... Favor ler a legenda.</p>' +
+                        '<p>Agradecido ;)</p>',
+                })
+
+                return false
+
+            }
+
+        }
+
+
+
+        output.onclick = (e) => {
+
+            if (output.value.length === 0) { return }
+
+            let text = document.getElementById("output")
+
+            text.select()
+            text.setSelectionRange(0, 99999)
+
+            navigator.clipboard.writeText(text.value)
+
+            Swal.fire({
+                title: 'Copiado!',
+                icon: 'success',
+                iconColor: '#4717f6',
+                width: '300',
+                showConfirmButton: false,
+                timer: 1500
+            })
+
+        }
+
+    </script>
 
 </body>
 

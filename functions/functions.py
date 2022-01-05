@@ -4,7 +4,7 @@ from cryptography.hazmat.primitives.hashes import SHA256
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 
 
-warning = 'OPERAÇÃO INVÁLIDA\n\nEVITE ELEMENTOS COMO "ã", "â", "é", "ç" E OUTROS CARACTERES ESPECIAIS.'
+warning = 'OPERAÇÃO INVÁLIDA; EVITE ELEMENTOS COMO "ã", "â", "é", "ç" E OUTROS CARACTERES ESPECIAIS.'
 
 
 def encode(message, keyword):
@@ -29,11 +29,11 @@ def encode(message, keyword):
         return str(token)[2:-1]
 
     except:
-        return warning
+        return f'{warning}\n\nMensagem: {message}\nSenha: {keyword}'
 
 
 def decode(message, keyword):
-    text = bytes(message, encoding='ascii')
+    token = bytes(message, encoding='ascii')
     password = bytes(keyword, encoding="ascii")
 
     try:
@@ -50,7 +50,7 @@ def decode(message, keyword):
 
         f = Fernet(key)
 
-        plain_txt = f.decrypt(text)
-        return str(plain_txt)
+        plain_txt = f.decrypt(token)
+        return str(plain_txt)[2:-1]
 
-    except: return "***SENHA INCORRETA***"*3
+    except: return "** SENHA INCORRETA OU TEXTO NÃO CODIFICADO **"
